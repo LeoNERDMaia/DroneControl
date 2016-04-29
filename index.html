@@ -69,24 +69,34 @@ First of all, lets understand the movements and forces involved in making a dron
 <h2>
 <a id="implementation-plan" class="anchor" href="#implementation-plan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementation plan</h2>
 
-<p>Despite several complex calculations necessary to make a real drone fly, in a simulated environment, specially a game, all we have to keep in mind are the forces involved.  Basically, for this first part, we'll scratch a script that apply forces on every motor position according to input axis.</p>
+<p>Despite several complex calculations necessary to make a real drone fly, in a simulated environment, specially a game, all we have to keep in mind are the forces involved. Basically, for this first part, we'll scratch a script that apply forces on every motor position according to input axis.</p>
+
+<h2>
+<a id="first-step" class="anchor" href="#first-step" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>First step</h2>
+
+<p>First, Let's create an empty project.  As mentioned before, we're not importing any asset for this one.</p>
 
 <h3>
 <a id="building-a-basic-scene" class="anchor" href="#building-a-basic-scene" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building a basic scene</h3>
 
-<p>We've built a basic scene with a "floor" made by a huge 100 x 100 x 0.1 cube (preferable in a distinct color).  Other random cubes to serve as obstacle and a light source.</p>
+<p>With an empty scene, let's add a "floor" made by a large 100 x 100 x 0.1 cube (preferable in a distinct color). Other random cubes can be created to serve as obstacle and a light source.</p>
 
 <p><img src="images/sceneexample.png" alt="Quad-copter motors and forces"></p>
 
 <h3>
 <a id="the-drone-model" class="anchor" href="#the-drone-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The drone model</h3>
 
-<p>For the first moment we're not using a model for drone.  But we can represent one by adding a cube with four cilinders on each corner of it.  The center of those corners will be the points where we may apply the forces for lift, pitch and roll.
+<p>Despite we are not using a 3D model to represent the drone, it can be done by adding a cube with four cylinders on each corner of it. Those corners will be the points where we may apply the forces for lift, pitch and roll.
 This is the basic object hierarchy:</p>
 
 <p><img src="images/dronestructure.png" alt="Quad-copter motors and forces"></p>
 
-<p>It's a good practice to create <em>mesh</em> <code>GameObject</code> as child from empty one.  That's also important in case of propeller, since we'll need to create the rotation effect later.</p>
+<p>It's a good practice to create <em>mesh</em> <code>GameObject</code> as child from empty one. That's also important in case of propeller, since we'll need to create the rotation effect later.</p>
+
+<h3>
+<a id="basic-lifting-script" class="anchor" href="#basic-lifting-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic lifting script</h3>
+
+<p>Let's create a script capable of know each motor point and apply force on them according to the input.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/WebdiverShaka/DroneControl">Drone Control</a> is maintained by <a href="https://github.com/WebdiverShaka">WebdiverShaka</a>.</span>
