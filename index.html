@@ -98,23 +98,22 @@ This is the basic object hierarchy:</p>
 
 <p>Let's create a script capable of know each motor point and apply force on them according to the input:</p>
 
-<pre><code>using UnityEngine;
-using System.Collections;
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">using</span> UnityEngine<span class="pl-k">;</span>
+<span class="pl-k">using</span> System.Collections<span class="pl-k">;</span>
 
-public class BasicControl : MonoBehaviour {
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">BasicControl</span> : <span class="pl-k">MonoBehaviour</span> {
 
-    public float MotorForce = 1;
-    public Transform[] Motors;
+    <span class="pl-k">public</span> <span class="pl-k">float</span> MotorForce = <span class="pl-c1">1</span>;
+    <span class="pl-k">public</span> Transform[] Motors;
 
-    void Update () {
-        foreach (Transform motor in Motors)
+    <span class="pl-k">void</span> <span class="pl-en">Update</span> () {
+        <span class="pl-k">foreach</span> (Transform motor <span class="pl-k">in</span> Motors)
         {
-            float TotalForce = Mathf.Clamp(Input.GetAxis("Throttle"), 0, 1) * (MotorForce / 10);
+            <span class="pl-k">float</span> TotalForce = Mathf.Clamp(Input.GetAxis(<span class="pl-s"><span class="pl-pds">"</span>Throttle<span class="pl-pds">"</span></span>), <span class="pl-c1">0</span>, <span class="pl-c1">1</span>) * (MotorForce / <span class="pl-c1">10</span>);
             gameObject.GetComponent&lt;Rigidbody&gt;().AddForceAtPosition(transform.up * TotalForce, motor.position, ForceMode.Impulse);
         }
     }
-}
-</code></pre>
+}</pre></div>
 
 <p>In the editor, it's necessary to add each motor to the <code>Motors</code> property.  In addiction, include <code>Throttle</code> as input alias.  It's highly recommended to use an analog game controller, but the keyboard can be used fine, just take it easy by pressing the throttle key.</p>
 
