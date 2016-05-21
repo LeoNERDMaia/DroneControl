@@ -63,7 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\BasicControl.cs" />
+    <Compile Include="Assets\DroneControl\Scripts\BasicControl.cs" />
+    <Compile Include="Assets\DroneControl\Scripts\BasicGyro.cs" />
+    <Compile Include="Assets\DroneControl\Scripts\Camera\CameraLookAt.cs" />
+    <Compile Include="Assets\DroneControl\Scripts\ComputerModule.cs" />
+    <Compile Include="Assets\DroneControl\Scripts\Controller\Controller.cs" />
+    <Compile Include="Assets\DroneControl\Scripts\Motors\Motor.cs" />
+    <Compile Include="Assets\DroneControl\Scripts\PID.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
